@@ -11,11 +11,11 @@ fn main() {
 
     // Tell cargo to tell rustc to link the system bzip2
     // shared library.
-    // println!("cargo:rustc-link-lib=static=lib_registration");
+    println!("cargo:rustc-link-lib=static=_registration");
     
     // println!("cargo:rustc-link-search=/home/nuc2kor/Desktop/devspace/test/Inteoperability/rust_prog/target/release/build/rust_prog-b89858f78142982d/out");
     // Tell cargo to invalidate the built crate whenever the wrapper changes
-    // println!("cargo:rerun-if-changed=bindings/wrapper.h");
+    println!("cargo:rerun-if-changed=bindings/wrapper.h");
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
     // the resulting bindings.
@@ -36,15 +36,5 @@ fn main() {
     bindings
         .write_to_file(out_path.join("bindings.rs"))
         .expect("Couldn't write bindings!");
-
-    // // Specify the path to the C source file
-    // let source_path = "../c_program/registration.c";
-
-    // // Build the C source file into a static library using cc
-    // cc::Build::new()
-    //     .file(source_path)
-    //     .compile("registration");
-
-    
 
 }
